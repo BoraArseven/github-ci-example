@@ -1,22 +1,14 @@
-name: Maven Build
+name: Java C1 with Maven in LInux
 on:
   push:
-    branches:
-      - main
+  pull_request:
 jobs:
   build:
-    name: "Maven Build"
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout Sources"
         uses: actions/checkout@v2
         with:
-          fetch-depth: 2
-      - name: "Set up JDK"
-        uses: actions/setup-java@v2
-        with:
-          distribution: "temurin"
-          java-version: 11
-          cache: "maven"
-      - name: "Build with Maven"
-        run: mvn verify
+          java-version: 1.8
+      - name: Build with Maven
+        run: mvn -f com.examples.myproject/pom.xml clean verify
