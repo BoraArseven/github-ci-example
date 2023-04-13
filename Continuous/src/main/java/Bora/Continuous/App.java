@@ -12,4 +12,7 @@ public class App
     public String sayHello() {
     	return "Hello";
     }
+    public String Function2() {
+    	return null;
+    }
 }
