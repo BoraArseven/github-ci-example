@@ -20,11 +20,7 @@ jobs:
         with: 
           java-version: ${{ matrix.java }}
           distribution: 'temurin'
-      - name: Archive JUnit Report
-        uses: actions/upload-artifact@v2
-        with:
-        name: surefire-report-jdk-${{ matrix.java }}
-        path: '**/target/site'
+
       - name: Cache Maven packages
         uses: actions/cache@v3
         with:
@@ -36,3 +32,15 @@ jobs:
          mvn -f Continuous/pom.xml
          clean verify
          surefire-report:report-only site:site -DgenerateReports=false
+      - name: Generate JUnit Report
+        run: >
+         mvn -f com.examples.myproject/pom.xml
+         surefire-report:report-only site:site -DgenerateReports=false
+        if: ${{ always() }}
+      - name: Archive JUnit Report
+        uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+        name: surefire-report-jdk-${{ matrix.java }}
+        path: '**/target/site'
+        
