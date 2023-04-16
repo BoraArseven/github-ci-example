@@ -36,7 +36,7 @@ jobs:
       -  name: Build with Maven
          run: |
             mvn verify surefire-report:report-only site:site -DgenerateReports=false
-         working-directory: Bora.Continuous
+         working-directory: Continuous
       -  name: Generate JUnit Report
          run: |
             mvn -f Continuous/pom.xml surefire-report:report-only site:site -DgenerateReports=false
