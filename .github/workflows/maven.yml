@@ -34,7 +34,7 @@ jobs:
          surefire-report:report-only site:site -DgenerateReports=false
       - name: Generate JUnit Report
         run: >
-         mvn -f com.examples.myproject/pom.xml
+         mvn -f Bora.Continuous/pom.xml
          surefire-report:report-only site:site -DgenerateReports=false
         if: ${{ always() }}
       - name: Archive JUnit Report
