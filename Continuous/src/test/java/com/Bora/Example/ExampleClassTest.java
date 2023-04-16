@@ -15,6 +15,7 @@ public class ExampleClassTest {
 	public void SayhelloNullShouldSayHello() {
 		assertEquals("Hello", ex.sayHello(null));
 	}
+	@Test
 	public void SayhelloNameShouldSayHelloName() {
 		assertEquals("Hello Bora", ex.sayHello("Bora"));
 	}

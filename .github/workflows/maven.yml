@@ -50,7 +50,6 @@ jobs:
       -  name: run jacoco
          run: |
             mvn verify ${{ matrix.additional-maven-args }}
-         
          env:
             COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
          working-directory: Continuous
