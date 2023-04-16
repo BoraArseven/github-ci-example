@@ -21,13 +21,18 @@ public class AppTest
      * Rigorous Test :-)
      */
     @Test
-    public void shouldAnswerWithTrue()
+    public void shouldAnswerWithHello()
     {
         assertEquals("Hello", app.sayHello());
+    }
+    @Test
+    public void testSayHelloWithName() {
+    assertEquals("Hello World", app.sayHello("World"));
     }
     @Test
     public void FunctionTwoShouldGiveNull()
     {
         assertEquals("Coveralls helps to fix our errors", app.Function2());
     }
+    
 }
