@@ -7,9 +7,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-      # test against several Java versions:
-       java: [ 8, 11 ]
+       java: [ 8, 11]
+        # test against several Java versions:
        os: [ubuntu-latest]
+       include:
+         - java: 8
+           additional-maven-args: "-Pjacoco"
        # excludes JDK 11 on macOS and Windows
        # includes processed after exclude
     name: Build with Java ${{ matrix.java }}
@@ -43,4 +46,7 @@ jobs:
         with:
          name: surefire-report-jdk-${{ matrix.java }}
          path: '**/target/site'
-        
+      - name: run jacoco
+        run: >
+         mvn -f Continuous/pom.xml
+         clean verify ${{ matrix.additional-maven-args }}
