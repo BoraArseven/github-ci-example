@@ -6,9 +6,15 @@ package Bora.Continuous;
  */
 public class App 
 {
+	public String sayHello(String name) {
+		if (name == null)
+		return "Hello";
+		else
+		return "Hello " + name;
+		}
     public String sayHello() {
-    	return "Hello";
-    }
+    	return sayHello(null);
+    	}
     public String Function2() {
     	return "Coveralls helps to fix our errors";
     }
