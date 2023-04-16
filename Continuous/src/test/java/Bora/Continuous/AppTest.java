@@ -25,4 +25,9 @@ public class AppTest
     {
         assertEquals("Hello", app.sayHello());
     }
+    @Test
+    public void FunctionTwoShouldGiveNull()
+    {
+        assertEquals("Coveralls helps to fix our errors", app.Function2());
+    }
 }
