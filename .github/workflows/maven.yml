@@ -12,7 +12,6 @@ jobs:
        include:
          - java: 8
            additional-maven-args: "-Pjacoco"
-         - java: 11
        # excludes JDK 11 on macOS and Windows
        # includes processed after exclude
     name: Build with Java ${{ matrix.java }}
