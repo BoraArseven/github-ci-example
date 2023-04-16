@@ -16,6 +16,6 @@ public class ExampleClassTest {
 		assertEquals("Hello", ex.sayHello(null));
 	}
 	public void SayhelloNameShouldSayHelloName() {
-		assertEquals("HelloBora", ex.sayHello("Bora"));
+		assertEquals("Hello Bora", ex.sayHello("Bora"));
 	}
 }
