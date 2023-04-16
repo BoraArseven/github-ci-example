@@ -7,12 +7,14 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-      # test against several Java versions:
+       java: [ 8, 11]
+        # test against several Java versions:
        os: [ubuntu-latest]
        include:
          - java: 8
            additional-maven-args: "-Pjacoco"
-         - java: 11
+       # excludes JDK 11 on macOS and Windows
+       # includes processed after exclude
     name: Build with Java ${{ matrix.java }}
     steps:
       - uses: actions/checkout@v3
